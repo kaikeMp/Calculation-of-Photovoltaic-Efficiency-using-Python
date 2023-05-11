@@ -5,10 +5,10 @@ Photovoltaic (PV) cells are devices that convert light energy into electrical en
 
 In this Python code, we will calculate the photovoltaic efficiency of solar panels using the equation PCE (%) = Jsc * Voc * FF / Pin, where Jsc is the short-circuit current density, Voc is the open-circuit voltage, FF is the fill factor, and Pin is the incident power. 
 
-Code Explanation:
+<h1>Code Explanation:</h1>
 The code can be used to calculate one or various devices.
 
-To calculate only one, use onePixe.py
+<h2>To calculate only one, use onePixe.py</h2>
 
 Set a path and name of the file without extension '.csv', 
 
@@ -16,19 +16,24 @@ Next, we set the path to the folder containing the solar panel data, create a ne
 
 Finally, we save the 'name_of_file' DataFrame to a .csv file in the 'Results' folder and print it to the console.
 
-To calculate two or more devices use variousPixels.py
+<h2>To calculate two or more devices use variousPixels.py</h2>
 
 We start by importing the necessary libraries such as Pandas, Matplotlib, and OS. We also import a custom SolarPanel class from the 'parameters' module. This class contains the necessary methods to calculate the PV parameters.
 
 Then, we declare an empty Pandas DataFrame called "concat" that will store the calculated parameters for all solar panels.
 
-Next, we loop through all the files and perform the following steps:
-1. Instantiate an object of the SolarPanel class with the file path and name as inputs.
-2. Calculate the PV parameters using the 'calculate_parameters' method from the SolarPanel class.
-3. Create a new Pandas DataFrame called "df" with the calculated parameters and insert the name of the device (file) in the first column.
-4. Get the IxV data using the 'get_data' method from the SolarPanel class.
-5. Plot the IxV curve using Matplotlib.
-6. Concatenate the 'df' DataFrame to the 'concat' DataFrame.
+
+<ul>
+<h3>Next, we loop through all the files and perform the following steps:</h3>
+<ol>
+<li>Instantiate an object of the SolarPanel class with the file path and name as inputs.</li>
+<li>Calculate the PV parameters using the 'calculate_parameters' method from the SolarPanel class.</li>
+<li>Create a new Pandas DataFrame called "df" with the calculated parameters and insert the name of the device (file) in the first column.</li>
+<li>Get the IxV data using the 'get_data' method from the SolarPanel class.</li>
+<li>Plot the IxV curve using Matplotlib.</li>
+<li>Concatenate the 'df' DataFrame to the 'concat' DataFrame.</li>
+</ol>
+</ul>
 
 Finally, we save the 'concat' DataFrame to a .csv file in the 'Results' folder and print it to the console.
 
