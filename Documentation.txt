@@ -1,0 +1,44 @@
+The provided code defines a Python class named `SolarPanel` with several methods to perform calculations on solar panel data. 
+
+Parameters- Main File
+
+First, the necessary libraries, `pandas`, `matplotlib`, `scipy`, and `numpy`, are imported. 
+
+The `SolarPanel` class has an `__init__` method that takes three arguments, `path`, `file`, `amps`, and `area`. `path` and `file` , `pin`, are used to locate and read a csv file containing the solar panel data. `amps` specifies the units of current measurements in the file, either 'mA' or 'A', and `area` specifies the area of the solar panel, and pin especify the in power of the lamp, default is 1 (sun). The `get_data` method extracts the current and voltage data from the csv file and stores them as two pandas series in `I` and `V`. The `interpolate` method takes `I` and `V` and performs cubic interpolation on the data to generate a new pandas dataframe `interpolate_df` with 3 columns (voltage, current, and power) and length equal to 1000. 
+
+The `show_plot` method uses `matplotlib` to plot a graph of the voltage vs. current data. The `calculate_parameters` method uses the `interpolate_df` dataframe to calculate several parameters related to the solar panel's performance, including `Isc` (short-circuit current), `Voc` (open-circuit voltage), `Pmax` (maximum power), `Imp` (current at maximum power), `Vmp` (voltage at maximum power), `PCE` (power conversion efficiency), `FF` (fill factor), and `Jsc` (short-circuit current density). These parameters are then stored in a dictionary and returned by the method.
+
+Finally, the main block of code initializes an instance of the `SolarPanel` class with a csv file containing solar panel data and then calls the `calculate_parameters` method to generate a pandas dataframe with the calculated parameters. The dataframe is then printed to the console.
+
+One Pixel - File used to calculate the parameters to ONE device or one Pixel of an Device.
+
+This Python code imports a class called "SolarPanel" from a module called "parameters" and uses it to process data from a specific file containing current-voltage (I-V) data for a solar panel. The processed data is used to calculate several performance parameters, and the results are saved to a new folder named "Results" in the same directory as the source file.
+
+The code begins by importing the necessary libraries, including "SolarPanel" class from "parameters" module, "pandas" library for data manipulation, "os" library for file system operations, and "matplotlib" library for plotting graphs.
+
+Next, the file path and name are defined for the file containing the I-V data. The code then creates a new instance of the "SolarPanel" class by passing the file path and name as arguments. The "calculate_parameters()" method of the class is called to calculate several performance parameters, and the results are saved to a new dataframe named "df".
+
+The code then creates a new directory called "Results" using "os.makedirs()" function to store the calculated data. It then extracts the I-V data by calling the "get_data()" method of the "SolarPanel" class and assigns them to variables "I" and "V". Finally, it plots a graph of the I-V data by calling the "show_plot()" method of the "SolarPanel" class and saves the calculated results to a CSV file in the "Results" directory. The dataframe is also printed to the console.
+
+
+Various Pixels - File used to calculat the parameters to two or more devices or Pixels of devices.
+
+This Python code imports various modules and libraries, performs some data processing and generates some graphical outputs.
+
+First, it imports the `SolarPanel` class from a module called `parameters`, as well as the `os`, `pandas`, `matplotlib.pyplot`, and `natsorted` modules.
+
+Then, a directory path is specified using the `path` variable. The `os.path` module is used to check if a folder named "Results" already exists in this directory, and if not, it is created using the `makedirs` function.
+
+Next, a list of files in the specified directory is created using the `os.listdir` function. If a file has a `.csv` extension, it is added to the `files` list.
+
+A pandas DataFrame called `concat` is then created to store the results of data processing.
+
+A loop then runs through each file in the `files` list. Within this loop, the `SolarPanel` class is called with the `path` and `file` arguments, and the resulting data is used to create a pandas DataFrame called `df`.
+
+The `df` DataFrame is then updated with the `Device` column, which is set to the `file` variable.
+
+The `get_data` method is then used to retrieve the IxV data, which is plotted on a graph using the `matplotlib.pyplot` module, along with a title derived from the `file` variable.
+
+The `df` DataFrame is then concatenated with the `concat` DataFrame, and the loop continues to the next file in the `files` list.
+
+Finally, the `concat` DataFrame is written to a `.csv` file in the "Results" folder using the `to_csv` method. The results are also printed to the console using the `print` function.	
